@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GenerateRandom from './sorting/GenerateRandom';
 import BubbleSort from './sorting/BubbleSort';
+import SelectionSort from './sorting/SelectionSort';
 import {
   BrowserRouter,
   Route,
@@ -34,12 +35,17 @@ class App extends React.Component{
         <div className="row">
           <div className="col-4 col-sm-4">
             <Link to="/GenerateRandom">
-            <button className="btn btn-primary" onClick={this.setNumbers}>Generate numbers</button>
+            <button className="btn btn-primary"  onClick={this.setNumbers}>Generate numbers</button>
             </Link>
           </div>
           <div className="col-4 col-sm-4">
             <Link to="/BubbleSort">
-            <button className="btn btn-primary">Bubble Sort</button>
+            <button className="btn btn-warning">Bubble Sort</button>
+            </Link>
+          </div>
+          <div className="col-4 col-sm-4">
+            <Link to="/SelectionSort">
+            <button className="btn btn-danger">Selection Sort</button>
             </Link>
           </div>
         </div>
@@ -53,9 +59,12 @@ class App extends React.Component{
 
             <Route exact path="/BubbleSort" render={(props)=>(
               <BubbleSort {...props} array={this.state.arr}/>
-            )}>
+            )}></Route>
+               <Route exact path="/SelectionSort" render={(props)=>(
+              <SelectionSort {...props} array={this.state.arr}/>
+            )}></Route>
 
-            </Route>
+            
             </Switch>
           </div>
         </div>
