@@ -16,7 +16,7 @@ state={
         }
         Timer=()=>{
             var dupArray=this.props.array;
-            
+            var len=dupArray.length;
             var i=-1;
             this.refrence=setInterval(()=>{
                 if(i==-1)
@@ -25,7 +25,7 @@ state={
                     this.setState({item:dupArray})
                     i++;
                 }
-                else if(i<15)
+                else if(i<len)  // change 15 to len
                 {
                     var min_idx=i;
                     for(var j=i+1;j<dupArray.length;j++)
@@ -43,7 +43,10 @@ state={
                     console.log(dupArray);
                 }
                 else{
-                    this.props.history.push("/");
+                    setTimeout(()=>{
+                        // alert("Your are redirected to home page");
+                         this.props.history.push("/");
+                     },3000)
                 }
             
             },500)

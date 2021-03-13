@@ -28,7 +28,7 @@ import {Progress} from 'reactstrap';
             this.setState({item:arr})
             i++;
         }
-         else if(i<15)
+         else if(i<len) // changed 15 to len
           {
            
             for (j=0, stop=len-i; j < stop; j++){
